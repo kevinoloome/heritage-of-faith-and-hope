@@ -82,4 +82,41 @@ document.addEventListener('DOMContentLoaded', function () {
     goTo(0);
     startAutoplay();
   }
+
+  // Animated counters
+  var counters = document.querySelectorAll('.counter-value[data-target]');
+  if (counters.length) {
+    var animateCounter = function (el) {
+      var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      var duration = 1400;
+      var startTime = null;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var value = Math.floor(eased * target);
+        el.textContent = value.toLocaleString() + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target.toLocaleString() + suffix;
+        }
+      }
+      requestAnimationFrame(step);
+    };
+    if ('IntersectionObserver' in window) {
+      var counterIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(function (el) { counterIO.observe(el); });
+    } else {
+      counters.forEach(function (el) { animateCounter(el); });
+    }
+  }
 });
