@@ -318,6 +318,12 @@ h3{ font-size: 1.25rem; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 30px 26px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(31,58,95,0.12);
+  border-color: rgba(226,163,59,0.4);
 }
 .card .eyebrow{ margin-bottom: 14px; }
 .card-number{
@@ -335,7 +341,8 @@ h3{ font-size: 1.25rem; }
   display: flex; align-items: center; justify-content: center;
   color: #fff;
 }
-.illustration svg{ width: 34%; height: 34%; position: relative; z-index: 2; opacity: 0.92; }
+.illustration svg{ width: 34%; height: 34%; position: relative; z-index: 2; opacity: 0.92; transition: transform 0.3s ease; }
+.illustration:hover svg{ transform: scale(1.12) rotate(-3deg); }
 .illustration-caption{
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
   font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em;
