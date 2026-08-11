@@ -134,11 +134,13 @@ h3{ font-size: 1.25rem; }
 
 .nav-links{ display: flex; align-items: center; gap: 4px; }
 .nav-links > li{ position: relative; }
+.btn-donate-mobile{ display: none; }
 .nav-links a.nav-link{
   color: var(--paper-2);
-  font-size: 0.92rem; font-weight: 500;
-  padding: 10px 14px; display: block; border-radius: var(--radius);
+  font-size: 0.9rem; font-weight: 500;
+  padding: 9px 12px; display: block; border-radius: var(--radius);
   transition: color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
 }
 .nav-links a.nav-link:hover, .nav-links a.nav-link.is-active{ color: #fff; background: rgba(255,255,255,0.08); }
 
@@ -180,7 +182,7 @@ h3{ font-size: 1.25rem; }
   .dropdown{ position: static; opacity: 1; visibility: visible; transform: none; background: transparent; border: none; padding-left: 14px; display: none; }
   .has-dropdown.is-open .dropdown{ display: block; }
   .nav-actions .btn-donate{ display: none; }
-  .nav-links .btn-donate-mobile{ margin-top: 10px; }
+  .nav-links .btn-donate-mobile{ display: block; margin-top: 10px; }
 }
 
 /* ---------- Hero ---------- */
@@ -205,7 +207,73 @@ h3{ font-size: 1.25rem; }
 .hero-panel .register-label{ color: var(--paper-2); }
 @media (max-width: 860px){ .hero-grid{ grid-template-columns: 1fr; } }
 
-/* ---------- Register / Ledger (signature element) ---------- */
+/* ---------- Hero Carousel ---------- */
+.hero-carousel{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--indigo) 0%, var(--indigo-2) 100%);
+  color: #fff;
+}
+.carousel-track{
+  display: flex;
+  transition: transform 0.6s cubic-bezier(.65,0,.35,1);
+}
+.carousel-slide{
+  flex: 0 0 100%;
+  padding: 88px 0 72px;
+  position: relative;
+}
+.carousel-slide::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 900px 500px at 85% -10%, rgba(226,163,59,0.18), transparent);
+  pointer-events: none;
+}
+.carousel-slide .hero-grid{ position: relative; z-index: 1; }
+.carousel-slide h1{ color:#fff; }
+.carousel-slide .lede{ color: var(--paper-2); }
+
+.carousel-dots{
+  display: flex; gap: 10px; justify-content: center;
+  padding-bottom: 28px;
+  position: relative; z-index: 2;
+}
+.carousel-dot{
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none; padding: 0; cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.carousel-dot.is-active{ background: var(--gold); transform: scale(1.25); }
+
+.carousel-arrow{
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 3;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--line-light);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.15s ease;
+}
+.carousel-arrow:hover{ background: rgba(255,255,255,0.16); }
+.carousel-arrow--prev{ left: 20px; }
+.carousel-arrow--next{ right: 20px; }
+@media (max-width: 760px){
+  .carousel-arrow{ display: none; }
+}
+
+.slide-icon{
+  width: 78px; height: 78px; border-radius: 50%;
+  background: rgba(226,163,59,0.14);
+  border: 1px solid rgba(226,163,59,0.4);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+}
+.slide-icon svg{ width: 36px; height: 36px; stroke: var(--gold-soft); }
+
 .register{
   font-family: var(--font-mono);
 }
@@ -351,7 +419,17 @@ h3{ font-size: 1.25rem; }
 .page-head h1{ color: #fff; margin-bottom: 14px; }
 .breadcrumb{ font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 16px; }
 
-/* ---------- Utility ---------- */
+/* ---------- Facebook embed ---------- */
+.fb-embed-wrap{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+  max-width: 560px;
+}
+.fb-embed-wrap iframe{ display: block; width: 100%; }
+.fb-embed-note{ font-family: var(--font-mono); font-size: 12px; color: var(--acacia); margin-top: 12px; }
+
 .mt-0{ margin-top: 0; } .mb-0{ margin-bottom: 0; }
 .text-center{ text-align: center; }
 .stack{ display:flex; flex-direction:column; gap: 8px; }
