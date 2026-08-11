@@ -325,6 +325,7 @@ h3{ font-size: 1.25rem; }
   background: var(--indigo); display: inline-flex; align-items:center; justify-content:center;
   width: 30px; height: 30px; border-radius: 50%; margin-bottom: 16px;
 }
+.card-number svg{ width: 16px; height: 16px; stroke: var(--gold); }
 
 .illustration{
   aspect-ratio: 4/3;
