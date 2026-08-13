@@ -362,6 +362,21 @@ h3{ font-size: 1.25rem; }
 .bg-acacia{ background: linear-gradient(150deg, var(--acacia), #24422f); }
 .bg-clay{ background: linear-gradient(150deg, var(--clay), #6f2f16); }
 
+.real-photo{
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--line);
+}
+.real-photo img{ width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.real-photo:hover img{ transform: scale(1.05); }
+.real-photo .illustration-caption{
+  position: absolute; left: 0; right: 0; bottom: 0;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em;
+  color: #fff; background: rgba(0,0,0,0.45); padding: 8px 12px;
+}
+
 /* ---------- Facts strip ---------- */
 .facts-strip{ background: var(--indigo-2); color: #fff; }
 
