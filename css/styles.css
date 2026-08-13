@@ -400,7 +400,37 @@ h3{ font-size: 1.25rem; }
 .pay-row .k{ color: var(--acacia); font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; }
 .pay-row .v{ font-weight: 600; font-family: var(--font-mono); }
 
-/* ---------- CTA band ---------- */
+/* ---------- Donate page extras ---------- */
+.pay-row{ position: relative; }
+.copy-btn{
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
+  border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--acacia);
+  padding: 4px 10px; margin-left: 12px; cursor: pointer; flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.copy-btn:hover{ background: var(--acacia); color: #fff; border-color: var(--acacia); }
+.copy-btn.is-copied{ background: var(--gold); color: var(--indigo-2); border-color: var(--gold); }
+.pay-row .v-wrap{ display: flex; align-items: center; }
+
+.amount-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
+@media (max-width: 760px){ .amount-grid{ grid-template-columns: repeat(2, 1fr); } }
+.amount-chip{
+  border: 1px solid var(--line); border-radius: var(--radius); background: #fff;
+  padding: 20px 16px; text-align: center; cursor: default;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.amount-chip:hover{ transform: translateY(-3px); box-shadow: 0 10px 22px rgba(31,58,95,0.1); border-color: rgba(226,163,59,0.5); }
+.amount-value{ font-family: var(--font-mono); font-size: 1.3rem; font-weight: 500; color: var(--indigo); }
+.amount-impact{ font-size: 0.82rem; color: var(--acacia); margin-top: 6px; }
+
+.whatsapp-cta{
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #25D366; color: #fff; padding: 13px 24px; border-radius: var(--radius);
+  font-weight: 600; font-size: 0.95rem;
+}
+.whatsapp-cta svg{ width: 20px; height: 20px; flex-shrink: 0; }
+.whatsapp-cta:hover{ background: #1ebe5a; }
+
 .cta-band{
   background: var(--acacia); color: #fff; text-align: center; padding: 72px 0;
 }
