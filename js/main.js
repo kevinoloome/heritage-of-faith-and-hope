@@ -154,4 +154,18 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.removeChild(ta);
     cb();
   }
+
+  // Gallery Load More
+  var loadMoreBtn = document.getElementById('gallery-load-more');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function () {
+      var hidden = document.querySelectorAll('#gallery-grid .gallery-extra');
+      hidden.forEach(function (el) {
+        el.style.display = '';
+        el.classList.add('reveal');
+        requestAnimationFrame(function () { el.classList.add('is-visible'); });
+      });
+      loadMoreBtn.style.display = 'none';
+    });
+  }
 });
