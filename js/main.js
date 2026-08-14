@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadMoreBtn.addEventListener('click', function () {
       var hidden = document.querySelectorAll('#gallery-grid .gallery-extra');
       hidden.forEach(function (el) {
-        el.style.display = '';
+        el.classList.remove('gallery-extra');
         el.classList.add('reveal');
         requestAnimationFrame(function () { el.classList.add('is-visible'); });
       });
