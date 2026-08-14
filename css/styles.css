@@ -201,7 +201,9 @@ h3{ font-size: 1.25rem; }
   border: 1px solid var(--line-light);
   border-radius: var(--radius);
   padding: 26px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(15,26,41,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .hero-panel .register-line{ border-color: var(--line-light); }
 .hero-panel .register-label{ color: var(--paper-2); }
@@ -222,11 +224,15 @@ h3{ font-size: 1.25rem; }
   flex: 0 0 100%;
   padding: 88px 0 72px;
   position: relative;
+  background-size: cover;
+  background-position: center;
 }
 .carousel-slide::before{
   content:"";
   position:absolute; inset:0;
-  background: radial-gradient(ellipse 900px 500px at 85% -10%, rgba(226,163,59,0.18), transparent);
+  background:
+    linear-gradient(100deg, rgba(15,26,41,0.94) 0%, rgba(15,26,41,0.82) 40%, rgba(15,26,41,0.55) 75%, rgba(15,26,41,0.4) 100%),
+    radial-gradient(ellipse 900px 500px at 85% -10%, rgba(226,163,59,0.12), transparent);
   pointer-events: none;
 }
 .carousel-slide .hero-grid{ position: relative; z-index: 1; }
