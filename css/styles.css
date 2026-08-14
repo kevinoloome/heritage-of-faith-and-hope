@@ -395,6 +395,43 @@ h3{ font-size: 1.25rem; }
   color: var(--ink); opacity: 0.75; background: #fff;
 }
 
+.logo-marquee{
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.logo-marquee-track{
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-scroll 34s linear infinite;
+}
+.logo-marquee:hover .logo-marquee-track{ animation-play-state: paused; }
+.logo-marquee-item{
+  flex: 0 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30px;
+}
+.logo-marquee-item img{
+  height: 100%;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.logo-marquee-item img:hover{ opacity: 1; transform: scale(1.05); }
+@keyframes marquee-scroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .logo-marquee-track{ animation: none; flex-wrap: wrap; width: 100%; justify-content: center; }
+}
+
 /* ---------- Quote / pull ---------- */
 .pull-quote{
   font-family: var(--font-display); font-style: italic; font-weight: 500;
@@ -475,7 +512,22 @@ h3{ font-size: 1.25rem; }
 @media (max-width: 760px){ .footer-grid{ grid-template-columns: 1fr; } }
 
 /* ---------- Page header (interior pages) ---------- */
-.page-head{ padding: 64px 0 56px; background: var(--indigo); color: #fff; }
+.page-head{
+  padding: 64px 0 56px;
+  background: var(--indigo);
+  color: #fff;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.page-head::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(15,26,41,0.92) 0%, rgba(15,26,41,0.8) 45%, rgba(15,26,41,0.55) 100%);
+  pointer-events: none;
+}
+.page-head .container{ position: relative; z-index: 1; }
 .page-head h1{ color: #fff; margin-bottom: 14px; }
 .breadcrumb{ font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 16px; }
 
