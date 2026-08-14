@@ -103,9 +103,10 @@ h3{ font-size: 1.25rem; }
 /* ---------- Header / Nav ---------- */
 .site-header{
   position: sticky; top: 0; z-index: 100;
-  background: rgba(31,58,95,0.97);
+  background: rgba(255,255,255,0.96);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(11,90,150,0.04);
 }
 .nav{
   display: flex; align-items: center; justify-content: space-between;
@@ -113,7 +114,7 @@ h3{ font-size: 1.25rem; }
 }
 .brand{
   display: flex; align-items: center; gap: 12px;
-  color: #fff;
+  color: var(--indigo-2);
   font-family: var(--font-display);
 }
 .brand-mark{
@@ -125,10 +126,10 @@ h3{ font-size: 1.25rem; }
   font-weight: 500; font-size: 12px; letter-spacing: 0.03em;
   flex-shrink: 0;
 }
-.brand-word{ font-size: 1.05rem; line-height: 1.15; font-weight: 600; }
+.brand-word{ font-size: 1.05rem; line-height: 1.15; font-weight: 600; color: var(--indigo-2); }
 .brand-word small{
   display: block; font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-soft);
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--acacia);
   font-weight: 400; margin-top: 2px;
 }
 
@@ -136,34 +137,35 @@ h3{ font-size: 1.25rem; }
 .nav-links > li{ position: relative; }
 .btn-donate-mobile{ display: none; }
 .nav-links a.nav-link{
-  color: var(--paper-2);
+  color: var(--indigo-2);
   font-size: 0.9rem; font-weight: 500;
   padding: 9px 12px; display: block; border-radius: var(--radius);
   transition: color 0.15s ease, background 0.15s ease;
   white-space: nowrap;
 }
-.nav-links a.nav-link:hover, .nav-links a.nav-link.is-active{ color: #fff; background: rgba(255,255,255,0.08); }
+.nav-links a.nav-link:hover, .nav-links a.nav-link.is-active{ color: var(--indigo-2); background: rgba(45,143,206,0.1); }
 
 .has-dropdown > .nav-link::after{ content: " \25BE"; font-size: 10px; opacity: 0.7; }
 .dropdown{
   position: absolute; top: 100%; left: 0;
   min-width: 200px;
-  background: var(--indigo-2);
-  border: 1px solid var(--line-light);
+  background: #fff;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 6px;
+  box-shadow: 0 12px 28px rgba(11,90,150,0.12);
   opacity: 0; visibility: hidden; transform: translateY(6px);
   transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
 }
 .has-dropdown:hover .dropdown,
 .has-dropdown:focus-within .dropdown{ opacity: 1; visibility: visible; transform: translateY(0); }
-.dropdown a{ display: block; padding: 10px 12px; border-radius: 3px; color: var(--paper-2); font-size: 0.9rem; }
-.dropdown a:hover{ background: rgba(255,255,255,0.08); color: #fff; }
+.dropdown a{ display: block; padding: 10px 12px; border-radius: 3px; color: var(--indigo-2); font-size: 0.9rem; }
+.dropdown a:hover{ background: rgba(45,143,206,0.1); color: var(--indigo-2); }
 
 .nav-actions{ display: flex; align-items: center; gap: 10px; }
 .nav-toggle{
   display: none;
-  background: none; border: none; color: #fff; cursor: pointer;
+  background: none; border: none; color: var(--indigo-2); cursor: pointer;
   padding: 8px; font-size: 22px;
 }
 
@@ -171,7 +173,7 @@ h3{ font-size: 1.25rem; }
   .nav-toggle{ display: block; }
   .nav-links{
     position: fixed; top: 73px; left: 0; right: 0; bottom: 0;
-    background: var(--indigo-2);
+    background: #fff;
     flex-direction: column; align-items: stretch;
     padding: 20px; gap: 2px;
     transform: translateX(100%);
@@ -179,7 +181,7 @@ h3{ font-size: 1.25rem; }
     overflow-y: auto;
   }
   .nav-links.is-open{ transform: translateX(0); }
-  .dropdown{ position: static; opacity: 1; visibility: visible; transform: none; background: transparent; border: none; padding-left: 14px; display: none; }
+  .dropdown{ position: static; opacity: 1; visibility: visible; transform: none; background: transparent; border: none; box-shadow: none; padding-left: 14px; display: none; }
   .has-dropdown.is-open .dropdown{ display: block; }
   .nav-actions .btn-donate{ display: none; }
   .nav-links .btn-donate-mobile{ display: block; margin-top: 10px; }
