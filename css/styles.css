@@ -205,8 +205,8 @@ h3{ font-size: 1.25rem; }
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-.hero-panel .register-line{ border-color: var(--line-light); }
-.hero-panel .register-label{ color: var(--paper-2); }
+.hero-panel.panel-dark .register-line{ border-color: var(--line-light); }
+.hero-panel.panel-dark .register-label{ color: var(--paper-2); }
 @media (max-width: 860px){ .hero-grid{ grid-template-columns: 1fr; } }
 
 /* ---------- Hero Carousel ---------- */
