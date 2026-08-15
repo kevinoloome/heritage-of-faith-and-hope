@@ -168,4 +168,39 @@ document.addEventListener('DOMContentLoaded', function () {
       loadMoreBtn.style.display = 'none';
     });
   }
+
+  // mailto form handling
+  var CENTRE_EMAIL = 'hfhchildrenhome@yahoo.com';
+
+  function wireMailtoForm(formId, buildSubjectBody) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = {};
+      Array.prototype.forEach.call(form.elements, function (el) {
+        if (el.name) data[el.name] = el.value;
+      });
+      var parts = buildSubjectBody(data);
+      var url = 'mailto:' + CENTRE_EMAIL
+        + '?subject=' + encodeURIComponent(parts.subject)
+        + '&body=' + encodeURIComponent(parts.body);
+      window.location.href = url;
+    });
+  }
+
+  wireMailtoForm('contact-form', function (d) {
+    return {
+      subject: 'Website message from ' + (d.name || 'a visitor'),
+      body: 'Name: ' + (d.name || '') + '\nEmail: ' + (d.email || '') + '\n\nMessage:\n' + (d.message || '')
+    };
+  });
+
+  wireMailtoForm('partner-form', function (d) {
+    return {
+      subject: 'Partnership enquiry from ' + (d.organisation || 'an organisation'),
+      body: 'Organisation: ' + (d.organisation || '') + '\nEmail: ' + (d.email || '')
+        + '\nArea of interest: ' + (d.interest || '') + '\n\nMessage:\n' + (d.message || '')
+    };
+  });
 });
