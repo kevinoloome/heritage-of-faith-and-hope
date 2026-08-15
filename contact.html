@@ -61,22 +61,22 @@
         </div>
       </div>
 
-      <form class="card reveal" onsubmit="return false;">
+      <form class="card reveal" id="contact-form">
         <p class="eyebrow">Send a Message</p>
         <div class="form-field">
           <label for="c-name">Full name</label>
-          <input id="c-name" name="name" type="text" placeholder="Your name">
+          <input id="c-name" name="name" type="text" placeholder="Your name" required>
         </div>
         <div class="form-field">
           <label for="c-email">Email</label>
-          <input id="c-email" name="email" type="email" placeholder="you@example.com">
+          <input id="c-email" name="email" type="email" placeholder="you@example.com" required>
         </div>
         <div class="form-field">
           <label for="c-message">Message</label>
-          <textarea id="c-message" name="message" placeholder="How can we help?"></textarea>
+          <textarea id="c-message" name="message" placeholder="How can we help?" required></textarea>
         </div>
         <button class="btn btn-primary btn-block" type="submit">Send Message</button>
-        <p class="form-note" style="margin-top:14px;">This form isn&rsquo;t wired to anything yet &mdash; connect it to email or a backend when you&rsquo;re ready.</p>
+        <p class="form-note" style="margin-top:14px;">Clicking send opens your email app with this filled in, addressed to the centre.</p>
       </form>
     </div>
   </section>
