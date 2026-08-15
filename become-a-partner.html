@@ -97,14 +97,14 @@
         <p>Fill in the form and our team will follow up to discuss the right kind of partnership for your organisation.</p>
         <p class="form-note">This form is a front end for now &mdash; wire it to email or a backend once you&rsquo;re ready to receive submissions.</p>
       </div>
-      <form class="card reveal" onsubmit="return false;">
+      <form class="card reveal" id="partner-form">
         <div class="form-field">
           <label for="p-org">Organisation name</label>
-          <input id="p-org" name="organisation" type="text" placeholder="Your organisation">
+          <input id="p-org" name="organisation" type="text" placeholder="Your organisation" required>
         </div>
         <div class="form-field">
           <label for="p-email">Email</label>
-          <input id="p-email" name="email" type="email" placeholder="you@organisation.com">
+          <input id="p-email" name="email" type="email" placeholder="you@organisation.com" required>
         </div>
         <div class="form-field">
           <label for="p-interest">Area of interest</label>
@@ -117,9 +117,10 @@
         </div>
         <div class="form-field">
           <label for="p-message">Message</label>
-          <textarea id="p-message" name="message" placeholder="Tell us a bit about what you'd like to do"></textarea>
+          <textarea id="p-message" name="message" placeholder="Tell us a bit about what you'd like to do" required></textarea>
         </div>
         <button class="btn btn-primary btn-block" type="submit">Send Enquiry</button>
+        <p class="form-note" style="margin-top:14px;">Clicking send opens your email app with this filled in, addressed to the centre.</p>
       </form>
     </div>
   </section>
