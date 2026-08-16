@@ -1,9 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Keep mobile menu offset in sync with the header's real rendered height
+  // (fixes gaps/overlap on phones where the header wraps or renders taller/shorter than expected)
+  var header = document.querySelector('.site-header');
+  function syncHeaderHeight() {
+    if (header) {
+      document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+    }
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+  window.addEventListener('orientationchange', syncHeaderHeight);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncHeaderHeight);
+  }
+
   // Mobile nav toggle
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
   if (toggle && links) {
     toggle.addEventListener('click', function () {
+      syncHeaderHeight();
       var open = links.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.textContent = open ? '✕' : '☰';
@@ -42,6 +58,22 @@ document.addEventListener('DOMContentLoaded', function () {
     var href = a.getAttribute('href');
     if (href === path) { a.classList.add('is-active'); }
   });
+
+  // Close mobile menu when an actual link (not a dropdown toggle) is tapped
+  if (links) {
+    links.querySelectorAll('a').forEach(function (a) {
+      var isDropdownToggle = a.parentElement.classList.contains('has-dropdown');
+      if (!isDropdownToggle) {
+        a.addEventListener('click', function () {
+          links.classList.remove('is-open');
+          if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.textContent = '☰';
+          }
+        });
+      }
+    });
+  }
 
   // Hero carousel
   var carousel = document.querySelector('.hero-carousel');
