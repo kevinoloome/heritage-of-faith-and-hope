@@ -103,8 +103,7 @@ h3{ font-size: 1.25rem; }
 /* ---------- Header / Nav ---------- */
 .site-header{
   position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(6px);
+  background: #fff;
   border-bottom: 1px solid var(--line);
   box-shadow: 0 1px 0 rgba(11,90,150,0.04);
 }
