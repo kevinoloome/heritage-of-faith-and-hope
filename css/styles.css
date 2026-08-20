@@ -1,7 +1,7 @@
 /* ==========================================================================
    Heritage of Faith and Hope: Design Tokens
-   Palette: dusk indigo (trust/night) -> sunrise gold (hope) -> acacia green
-   (growth/education) across a warm paper daylight base.
+   Palette: sky blue (brand) across a warm paper daylight base, with
+   acacia green (growth/education) and clay (urgent CTA) as accents.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
@@ -12,8 +12,8 @@
   --paper-2:    #EAE2D0;
   --indigo:     #2D8FCE;
   --indigo-2:   #0B5A96;
-  --gold:       #E2A33B;
-  --gold-soft:  #F1C578;
+  --gold:       #8FD3F4;
+  --gold-soft:  #C9EAFB;
   --acacia:     #3E6B52;
   --clay:       #B5532C;
   --line:       rgba(32,29,24,0.14);
@@ -57,7 +57,7 @@ p{ margin: 0 0 1em; }
   font-size: 12.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--acacia);
+  color: var(--indigo-2);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -96,8 +96,8 @@ h3{ font-size: 1.25rem; }
 .btn-ghost{ border-color: currentColor; color: inherit; background: transparent; }
 .section--dark .btn-ghost{ color: var(--paper); }
 .btn-ghost:hover{ background: rgba(255,255,255,0.08); }
-.btn-donate{ background: var(--clay); color: #fff; }
-.btn-donate:hover{ background: #9a4522; }
+.btn-donate{ background: var(--indigo); color: #fff; }
+.btn-donate:hover{ background: var(--indigo-2); }
 .btn-block{ width: 100%; justify-content: center; }
 
 /* ---------- Header / Nav ---------- */
@@ -117,18 +117,15 @@ h3{ font-size: 1.25rem; }
   font-family: var(--font-display);
 }
 .brand-mark{
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--gold);
-  color: var(--indigo-2);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-mono);
-  font-weight: 500; font-size: 12px; letter-spacing: 0.03em;
+  height: 46px;
+  width: auto;
   flex-shrink: 0;
+  object-fit: contain;
 }
 .brand-word{ font-size: 1.05rem; line-height: 1.15; font-weight: 600; color: var(--indigo-2); }
 .brand-word small{
   display: block; font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--acacia);
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--indigo);
   font-weight: 400; margin-top: 2px;
 }
 
@@ -291,7 +288,7 @@ h3{ font-size: 1.25rem; }
   border-bottom: 1px solid var(--line);
 }
 .register-line:first-child{ border-top: 1px solid var(--line); }
-.register-no{ font-size: 11px; color: var(--acacia); width: 56px; flex-shrink: 0; }
+.register-no{ font-size: 11px; color: var(--indigo-2); width: 56px; flex-shrink: 0; }
 .section--dark .register-no{ color: var(--gold-soft); }
 .register-label{ flex: 1; font-family: var(--font-body); font-size: 0.95rem; padding: 0 12px; }
 .register-value{ font-size: 1.5rem; font-weight: 500; color: var(--indigo); white-space: nowrap; }
@@ -310,7 +307,7 @@ h3{ font-size: 1.25rem; }
   background: var(--gold); border: 2px solid var(--paper);
   box-shadow: 0 0 0 1px var(--line);
 }
-.timeline-date{ font-family: var(--font-mono); font-size: 12.5px; color: var(--acacia); letter-spacing: 0.05em; }
+.timeline-date{ font-family: var(--font-mono); font-size: 12.5px; color: var(--indigo-2); letter-spacing: 0.05em; }
 .timeline-entry h3{ margin: 4px 0 6px; }
 
 /* ---------- Cards / Grids ---------- */
@@ -366,8 +363,8 @@ h3{ font-size: 1.25rem; }
     radial-gradient(circle at 85% 90%, rgba(0,0,0,0.18) 0, transparent 45%);
 }
 .bg-indigo{ background: linear-gradient(150deg, var(--indigo), var(--indigo-2)); }
-.bg-gold{ background: linear-gradient(150deg, var(--gold), #b9781f); }
-.bg-acacia{ background: linear-gradient(150deg, var(--acacia), #24422f); }
+.bg-gold{ background: linear-gradient(150deg, var(--gold), var(--indigo-2)); }
+.bg-acacia{ background: linear-gradient(150deg, #2A2A28, var(--ink)); }
 .bg-clay{ background: linear-gradient(150deg, var(--clay), #6f2f16); }
 
 .real-photo{
@@ -449,7 +446,7 @@ h3{ font-size: 1.25rem; }
   border: 1px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--ink);
 }
 .form-field textarea{ resize: vertical; min-height: 120px; }
-.form-note{ font-family: var(--font-mono); font-size: 12px; color: var(--acacia); margin-top: -6px; }
+.form-note{ font-family: var(--font-mono); font-size: 12px; color: var(--indigo-2); margin-top: -6px; }
 
 /* ---------- Donate detail box ---------- */
 .pay-box{
@@ -458,18 +455,18 @@ h3{ font-size: 1.25rem; }
 }
 .pay-row{ display: flex; justify-content: space-between; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
 .pay-row:last-child{ border-bottom: none; }
-.pay-row .k{ color: var(--acacia); font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; }
+.pay-row .k{ color: var(--indigo-2); font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; }
 .pay-row .v{ font-weight: 600; font-family: var(--font-mono); }
 
 /* ---------- Donate page extras ---------- */
 .pay-row{ position: relative; }
 .copy-btn{
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
-  border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--acacia);
+  border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--indigo-2);
   padding: 4px 10px; margin-left: 12px; cursor: pointer; flex-shrink: 0;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-.copy-btn:hover{ background: var(--acacia); color: #fff; border-color: var(--acacia); }
+.copy-btn:hover{ background: var(--indigo-2); color: #fff; border-color: var(--indigo-2); }
 .copy-btn.is-copied{ background: var(--gold); color: var(--indigo-2); border-color: var(--gold); }
 .pay-row .v-wrap{ display: flex; align-items: center; }
 
@@ -482,7 +479,7 @@ h3{ font-size: 1.25rem; }
 }
 .amount-chip:hover{ transform: translateY(-3px); box-shadow: 0 10px 22px rgba(31,58,95,0.1); border-color: rgba(226,163,59,0.5); }
 .amount-value{ font-family: var(--font-mono); font-size: 1.3rem; font-weight: 500; color: var(--indigo); }
-.amount-impact{ font-size: 0.82rem; color: var(--acacia); margin-top: 6px; }
+.amount-impact{ font-size: 0.82rem; color: var(--indigo-2); margin-top: 6px; }
 
 .whatsapp-cta{
   display: inline-flex; align-items: center; gap: 10px;
@@ -492,8 +489,28 @@ h3{ font-size: 1.25rem; }
 .whatsapp-cta svg{ width: 20px; height: 20px; flex-shrink: 0; }
 .whatsapp-cta:hover{ background: #1ebe5a; }
 
+/* ---------- Floating WhatsApp button ---------- */
+.whatsapp-float{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 400;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.whatsapp-float:hover{ transform: scale(1.08); box-shadow: 0 10px 26px rgba(0,0,0,0.28); }
+.whatsapp-float svg{ width: 28px; height: 28px; fill: #fff; }
+@media (max-width: 600px){
+  .whatsapp-float{ right: 14px; bottom: 14px; width: 50px; height: 50px; }
+  .whatsapp-float svg{ width: 25px; height: 25px; }
+}
+
 .cta-band{
-  background: var(--acacia); color: #fff; text-align: center; padding: 72px 0;
+  background: var(--ink); color: #fff; text-align: center; padding: 72px 0;
 }
 .cta-band h2{ color: #fff; }
 .cta-band .lede{ margin: 0 auto 30px; color: rgba(255,255,255,0.85); }
@@ -563,14 +580,14 @@ h3{ font-size: 1.25rem; }
   max-width: 560px;
 }
 .fb-embed-wrap iframe{ display: block; width: 100%; }
-.fb-embed-note{ font-family: var(--font-mono); font-size: 12px; color: var(--acacia); margin-top: 12px; }
+.fb-embed-note{ font-family: var(--font-mono); font-size: 12px; color: var(--indigo-2); margin-top: 12px; }
 
 .mt-0{ margin-top: 0; } .mb-0{ margin-bottom: 0; }
 .text-center{ text-align: center; }
 .stack{ display:flex; flex-direction:column; gap: 8px; }
 .tag{
   display:inline-block; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--acacia); border: 1px solid var(--line); border-radius: 999px;
+  text-transform: uppercase; color: var(--indigo-2); border: 1px solid var(--line); border-radius: 999px;
   padding: 4px 12px; margin-bottom: 10px;
 }
 
